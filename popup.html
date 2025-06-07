@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EasyApplyPlugin</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 16px; width: 350px; }
+    h2 { margin-top: 0; }
+    .section { margin-bottom: 18px; }
+    label { display: block; margin-bottom: 4px; font-weight: bold; }
+    input[type="text"], textarea { width: 100%; margin-bottom: 8px; }
+    button { margin-right: 8px; margin-top: 4px; }
+    .qa-list { margin-top: 8px; }
+    .qa-item { border-bottom: 1px solid #eee; padding: 6px 0; }
+    .qa-q { font-weight: bold; }
+    .qa-a { margin-left: 8px; color: #333; }
+    .qa-actions { float: right; }
+    .small { font-size: 0.9em; color: #888; }
+  </style>
+</head>
+<body>
+  <h2>EasyApplyPlugin</h2>
+  <div class="section">
+    <label for="cv">Your CV (paste text):</label>
+    <textarea id="cv" rows="5" placeholder="Paste your CV here..."></textarea>
+    <button id="save-cv">Save CV</button>
+    <span id="cv-status" class="small"></span>
+  </div>
+  <div class="section">
+    <label for="api-key">Gemini API Key:</label>
+    <input type="text" id="api-key" placeholder="Enter Gemini API key..." />
+    <button id="save-api-key">Save API Key</button>
+    <span id="api-status" class="small"></span>
+  </div>
+  <div class="section">
+    <label>Add Q&A Pair:</label>
+    <input type="text" id="qa-question" placeholder="Question..." />
+    <input type="text" id="qa-answer" placeholder="Answer..." />
+    <button id="add-qa">Add</button>
+  </div>
+  <div class="section">
+    <label>Q&A Cache:</label>
+    <div id="qa-list" class="qa-list"></div>
+  </div>
+  <div class="section">
+    <button id="start-automation" style="background:#0073b1;color:#fff;">Start Automation</button>
+    <button id="stop-automation" style="background:#b10000;color:#fff;">Stop Automation</button>
+    <span id="automation-status" class="small"></span>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html> 
