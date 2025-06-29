@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "LinkedIn Easy Apply Automator",
-  "version": "1.0",
+  "version": "2.0",
   "description": "Automate Easy Apply on LinkedIn jobs that do not redirect externally.",
   "permissions": [
     "scripting",
@@ -25,7 +25,34 @@
   "content_scripts": [
     {
       "matches": ["https://www.linkedin.com/jobs/search*"],
-      "js": ["config.js", "content.js"]
+      "js": [
+        "src/utils/LinkedInSelectors.js",
+        "src/config/config.js",
+        "src/config/selectors.js",
+        "src/utils/ErrorHandler.js",
+        "src/utils/DOMUtils.js",
+        "src/utils/CacheManager.js",
+        "src/utils/FieldDetector.js",
+        "src/utils/JobDetector.js",
+        "src/api/GeminiClient.js",
+        "src/handlers/FieldHandlerBase.js",
+        "src/handlers/CountryFieldHandler.js", 
+        "src/handlers/TextFieldHandler.js",
+        "src/handlers/SelectFieldHandler.js",
+        "src/handlers/RadioGroupHandler.js",
+        "src/handlers/RadioButtonFieldsetHandler.js",
+        "src/handlers/CheckboxFieldHandler.js",
+        "src/handlers/TypeaheadFieldHandler.js",
+        "src/FormFiller.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["src/*"],
+      "matches": ["https://www.linkedin.com/*"]
     }
   ]
 } 

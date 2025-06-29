@@ -16,10 +16,23 @@
     .qa-a { margin-left: 8px; color: #333; }
     .qa-actions { float: right; }
     .small { font-size: 0.9em; color: #888; }
+    .debug-btn { background: #f0ad4e; color: #fff; }
+    .checkbox-container { margin-bottom: 10px; }
+    .checkbox-label { font-weight: normal; display: inline; }
+    .automation-buttons { margin-top: 10px; margin-bottom: 16px; }
   </style>
 </head>
 <body>
   <h2>EasyApplyPlugin</h2>
+  
+  <!-- Moved automation buttons to the top -->
+  <div class="automation-buttons">
+    <button id="start-automation" style="background:#0073b1;color:#fff;">Start Automation</button>
+    <button id="process-all-jobs" style="background:#00b159;color:#fff;">Process All Jobs</button>
+    <button id="stop-automation" style="background:#b10000;color:#fff;">Stop Automation</button>
+    <span id="automation-status" class="small"></span>
+  </div>
+  
   <div class="section">
     <label for="cv">Your CV (paste text):</label>
     <textarea id="cv" rows="5" placeholder="Paste your CV here..."></textarea>
@@ -43,9 +56,12 @@
     <div id="qa-list" class="qa-list"></div>
   </div>
   <div class="section">
-    <button id="start-automation" style="background:#0073b1;color:#fff;">Start Automation</button>
-    <button id="stop-automation" style="background:#b10000;color:#fff;">Stop Automation</button>
-    <span id="automation-status" class="small"></span>
+    <div class="checkbox-container">
+      <input type="checkbox" id="process-non-easy-apply" />
+      <label for="process-non-easy-apply" class="checkbox-label">Process non-Easy Apply jobs as fallback</label>
+    </div>
+    <button id="debug-button" class="debug-btn">Debug Job Detection</button>
+    <button id="debug-apply-button" class="debug-btn">Debug Apply Button</button>
   </div>
   <script src="popup.js"></script>
 </body>
